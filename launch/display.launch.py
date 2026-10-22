@@ -19,15 +19,14 @@ def nodes(context):
     with open(urdf) as f:
         description = f.read()
         
-    return [
+    result = [
         Node(package="robot_state_publisher", executable="robot_state_publisher",
              parameters=[{"robot_description": description}]),
         Node(package="rviz2", executable="rviz2", arguments=["-d", os.path.join(share, "rviz", "nacelle.rviz")]),
     ]
-
+    
     if use_gui:
         result.insert(1, Node(package="joint_state_publisher_gui", executable="joint_state_publisher_gui"))
-            
     return result
 
 
