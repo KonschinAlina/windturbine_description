@@ -18,7 +18,7 @@ def nodes(context):
     with open(urdf) as f:
         description = f.read()
         
-    result [
+    return [
         Node(package="robot_state_publisher", executable="robot_state_publisher",
              parameters=[{"robot_description": description}]),
         Node(package="rviz2", executable="rviz2", arguments=["-d", os.path.join(share, "rviz", "windTurbine.rviz")]),
