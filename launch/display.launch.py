@@ -25,7 +25,7 @@ def nodes(context):
         Node(package="rviz2", executable="rviz2", arguments=["-d", os.path.join(share, "rviz", "nacelle.rviz")]),
     ]
 
-     if use_gui:
+    if use_gui:
         result.insert(1, Node(package="joint_state_publisher_gui", executable="joint_state_publisher_gui"))
             
     return result
